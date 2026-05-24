@@ -573,6 +573,26 @@ p {
   font-weight: 800;
 }
 
+.trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.trust-strip span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 8px 13px;
+  border: 1px solid rgba(72, 100, 79, 0.16);
+  border-radius: 999px;
+  color: var(--sage-deep);
+  background: rgba(255, 255, 255, 0.72);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
 .faq {
   background: var(--white);
 }
