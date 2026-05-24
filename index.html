@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
     <header class="site-header" data-header>
       <a class="brand" href="#inicio" aria-label="Ir para o início">
         <img class="brand-logo" src="assets/logo-ana-carolina.png" alt="Logo Dra Ana Carolina Oliveira Psicologia" />
@@ -35,6 +36,7 @@
       <nav class="nav" aria-label="Navegação principal" data-nav>
         <a href="#inicio">Início</a>
         <a href="#quando-procurar">Quando procurar</a>
+        <a href="#acolhimento">Acolhimento</a>
         <a href="#atendimentos">Atendimentos</a>
         <a href="#processo">Processo</a>
         <a href="#agenda">Agenda</a>
@@ -44,7 +46,7 @@
       </nav>
     </header>
 
-    <main>
+    <main id="conteudo">
       <section class="hero" id="inicio" aria-labelledby="hero-title">
         <div class="hero-inner">
           <div class="hero-content">
@@ -55,7 +57,7 @@
             <p class="hero-subtitle">
               Psicoterapia para crianças, adolescentes e adultos, com escuta acolhedora, orientação aos
               responsáveis e um olhar técnico para emoções, comportamento, ansiedade, socialização e
-              desenvolvimento.
+              desenvolvimento, incluindo situações em que há suspeitas de TEA ou TDAH.
             </p>
             <div class="hero-actions">
               <a class="button primary" href="https://wa.me/5511943333199" target="_blank" rel="noreferrer">
@@ -88,6 +90,7 @@
               <span>Socialização</span>
               <span>Dificuldades escolares</span>
               <span>Orientação aos pais</span>
+              <span>TEA e TDAH</span>
             </div>
           </aside>
         </div>
@@ -127,6 +130,40 @@
         </div>
       </section>
 
+      <section class="section play-care" id="acolhimento" aria-labelledby="play-care-title">
+        <div class="play-care-grid">
+          <figure class="play-care-image">
+            <img
+              src="assets/recursos-ludicos-terapia.png"
+              alt="Mesa de consultório com blocos, lápis de cor, cartões emocionais e recursos lúdicos organizados"
+            />
+          </figure>
+          <div class="play-care-copy">
+            <p class="eyebrow">Acolhimento lúdico e neuroafirmativo</p>
+            <h2 id="play-care-title">Um espaço onde a criança pode se expressar no próprio ritmo.</h2>
+            <p>
+              Algumas crianças chegam falando pouco, outras exploram o ambiente, brincam, desenham,
+              perguntam, se movimentam ou precisam de mais tempo para confiar. No atendimento infantil,
+              esses modos de expressão são acolhidos com cuidado clínico e respeito às singularidades.
+            </p>
+            <div class="comfort-list" aria-label="Cuidados no atendimento infantil">
+              <article>
+                <h3>Brincar também comunica</h3>
+                <p>Recursos lúdicos ajudam a criança a mostrar emoções, medos, interesses e formas de lidar com o mundo.</p>
+              </article>
+              <article>
+                <h3>Respeito ao perfil sensorial</h3>
+                <p>O processo considera ritmo, necessidade de previsibilidade, comunicação e possíveis sensibilidades.</p>
+              </article>
+              <article>
+                <h3>Família orientada</h3>
+                <p>Os responsáveis recebem devolutivas para entender melhor a criança e apoiar o cuidado em casa.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="section therapy-help" id="como-ajuda" aria-labelledby="therapy-title">
         <div class="section-heading center">
           <p class="eyebrow">Como a psicoterapia pode ajudar</p>
@@ -154,7 +191,7 @@
             <h3>Olhar técnico e individualizado</h3>
             <p>
               Cada caso é acompanhado de forma ética, com avaliação inicial, plano terapêutico e
-              acompanhamento das necessidades específicas.
+              acompanhamento das necessidades específicas, sem reduzir a criança a um rótulo.
             </p>
           </article>
           <article class="soft-card benefit-card">
@@ -180,7 +217,7 @@
             <p>
               Para crianças de 2 a 8 anos. O atendimento utiliza recursos lúdicos para que a criança
               possa se expressar, compreender emoções e desenvolver novas formas de lidar com situações
-              do dia a dia.
+              do dia a dia, respeitando seu ritmo, sua comunicação e suas formas de brincar.
             </p>
             <strong>A primeira sessão é com os responsáveis, para entender a história e orientar o início.</strong>
           </article>
@@ -333,6 +370,18 @@
                 escolares, dificuldades de socialização, mudanças importantes de comportamento ou atrasos
                 persistentes no desenvolvimento. Quanto mais cedo esses sinais forem acolhidos e compreendidos,
                 maiores são as chances de reduzir sofrimento e orientar a família de forma adequada.
+              </p>
+            </div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Meu filho tem suspeita de autismo ou TDAH. A terapia pode ajudar?
+            </button>
+            <div class="faq-answer" hidden>
+              <p>
+                Sim. A psicoterapia pode ajudar a compreender emoções, comportamento, socialização,
+                frustrações, rotina e necessidades de apoio. Quando necessário, o acompanhamento pode dialogar
+                com família, escola, pediatra ou outros profissionais, sempre respeitando a singularidade da criança.
               </p>
             </div>
           </article>

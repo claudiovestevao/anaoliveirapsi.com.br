@@ -84,7 +84,7 @@ const renderSchedule = () => {
               ? slots
                   .map(
                     (hour) =>
-                      `<a class="slot-button" href="${createWhatsAppLink(day.label, hour)}" target="_blank" rel="noreferrer">${hour}</a>`,
+                      `<a class="slot-button" href="${createWhatsAppLink(day.label, hour)}" target="_blank" rel="noreferrer" aria-label="Solicitar agendamento para ${day.label}, às ${hour}, pelo WhatsApp">${hour}</a>`,
                   )
                   .join("")
               : '<span class="slot-unavailable">Sem horários</span>'
@@ -133,6 +133,7 @@ const collectAdminAvailability = () =>
 
 const openAdmin = () => {
   adminModal.hidden = false;
+  document.body.classList.add("menu-open");
   adminLogin.hidden = false;
   adminEditor.hidden = true;
   adminError.hidden = true;
@@ -180,9 +181,13 @@ nav.querySelectorAll("a").forEach((link) => {
   });
 });
 
-faqItems.forEach((item) => {
+faqItems.forEach((item, index) => {
   const question = item.querySelector(".faq-question");
   const answer = item.querySelector(".faq-answer");
+  const answerId = `faq-answer-${index + 1}`;
+
+  answer.id = answerId;
+  question.setAttribute("aria-controls", answerId);
 
   question.addEventListener("click", () => {
     const isOpen = item.classList.contains("is-open");
