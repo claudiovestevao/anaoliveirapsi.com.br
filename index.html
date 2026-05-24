@@ -20,7 +20,7 @@
   <body>
     <header class="site-header" data-header>
       <a class="brand" href="#inicio" aria-label="Ir para o início">
-        <span class="brand-mark">AC</span>
+        <img class="brand-logo" src="assets/logo-ana-carolina.png" alt="Logo Dra Ana Carolina Oliveira Psicologia" />
         <span class="brand-copy">
           <strong>Ana Carolina Oliveira</strong>
           <small>Psicóloga Clínica | CRP/SP 06/228063</small>
@@ -37,6 +37,7 @@
         <a href="#quando-procurar">Quando procurar</a>
         <a href="#atendimentos">Atendimentos</a>
         <a href="#processo">Processo</a>
+        <a href="#agenda">Agenda</a>
         <a href="#sobre">Sobre</a>
         <a href="#faq">FAQ</a>
         <a class="nav-action" href="https://wa.me/5511943333199" target="_blank" rel="noreferrer">Agendar</a>
@@ -47,6 +48,7 @@
       <section class="hero" id="inicio" aria-labelledby="hero-title">
         <div class="hero-inner">
           <div class="hero-content">
+            <img class="hero-logo" src="assets/logo-ana-carolina.png" alt="Dra Ana Carolina Oliveira Psicologia" />
             <p class="eyebrow">Psicoterapia infantil, adolescente e adulto</p>
             <p class="professional-line">Ana Carolina Oliveira | Psicóloga Clínica | CRP/SP 06/228063</p>
             <h1 id="hero-title">Cuidado psicológico para seu filho crescer com mais equilíbrio emocional</h1>
@@ -60,7 +62,9 @@
                 Agendar uma conversa pelo WhatsApp
               </a>
             </div>
-            <p class="support-text">Atendimento presencial e online | Particular com recibo para reembolso</p>
+            <p class="support-text">
+              Atendimento presencial e online | Av. Salgado Filho, 252, Centro, Guarulhos-SP
+            </p>
           </div>
 
           <aside class="hero-panel" aria-label="Informações do atendimento">
@@ -246,6 +250,39 @@
         </p>
       </section>
 
+      <section class="section scheduling" id="agenda" aria-labelledby="schedule-title">
+        <div class="schedule-shell">
+          <div class="schedule-copy">
+            <p class="eyebrow">Agenda</p>
+            <h2 id="schedule-title">Escolha um horário para iniciar o contato.</h2>
+            <p>
+              Consulte os horários disponíveis da semana e envie a solicitação pelo WhatsApp. A confirmação
+              acontece após o retorno da clínica.
+            </p>
+            <div class="location-card">
+              <span>Atendimento presencial</span>
+              <strong>Av. Salgado Filho, 252, Centro, Guarulhos-SP</strong>
+              <small>Também há atendimento online quando indicado para o caso.</small>
+            </div>
+          </div>
+
+          <div class="schedule-board" aria-label="Horários disponíveis para agendamento">
+            <div class="schedule-board-header">
+              <div>
+                <span class="mini-label">Horários comerciais</span>
+                <h3>Disponibilidade semanal</h3>
+              </div>
+              <button class="admin-open" type="button" data-admin-open>Admin</button>
+            </div>
+            <p class="schedule-hint">Horários entre 8h e 20h. Toque em um horário para solicitar pelo WhatsApp.</p>
+            <div class="schedule-grid" data-schedule-grid></div>
+            <p class="schedule-empty" data-schedule-empty hidden>
+              Nenhum horário disponível nesta semana. Fale pelo WhatsApp para consultar encaixes.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section class="section about" id="sobre" aria-labelledby="about-title">
         <figure class="about-photo">
           <img
@@ -396,9 +433,39 @@
           <a class="button primary dark" href="https://wa.me/5511943333199" target="_blank" rel="noreferrer">
             Agendar pelo WhatsApp
           </a>
+          <p class="final-address">Av. Salgado Filho, 252, Centro, Guarulhos-SP</p>
         </div>
       </section>
     </main>
+
+    <div class="admin-modal" data-admin-modal hidden>
+      <div class="admin-dialog" role="dialog" aria-modal="true" aria-labelledby="admin-title">
+        <button class="admin-close" type="button" aria-label="Fechar painel administrativo" data-admin-close>×</button>
+        <div data-admin-login>
+          <p class="eyebrow">Painel administrativo</p>
+          <h2 id="admin-title">Editar horários da semana</h2>
+          <p>Digite a senha para liberar ou bloquear horários exibidos no site.</p>
+          <label class="admin-password">
+            Senha
+            <input type="password" data-admin-password autocomplete="current-password" placeholder="Digite a senha" />
+          </label>
+          <button class="button primary" type="button" data-admin-enter>Entrar</button>
+          <p class="admin-error" data-admin-error hidden>Senha incorreta.</p>
+        </div>
+        <div class="admin-editor" data-admin-editor hidden>
+          <p class="eyebrow">Disponibilidade</p>
+          <h2>Marque os horários que podem aparecer para pacientes.</h2>
+          <p>Os horários vão de 8h às 20h. As alterações ficam salvas neste navegador.</p>
+          <div class="admin-grid" data-admin-grid></div>
+          <div class="admin-actions">
+            <button class="button secondary-admin" type="button" data-admin-weekdays>Preencher dias úteis</button>
+            <button class="button secondary-admin" type="button" data-admin-clear>Limpar tudo</button>
+            <button class="button primary" type="button" data-admin-save>Salvar horários</button>
+          </div>
+          <p class="admin-saved" data-admin-saved hidden>Horários atualizados.</p>
+        </div>
+      </div>
+    </div>
 
     <a
       class="floating-whatsapp"
@@ -415,6 +482,7 @@
         <strong>Ana Carolina Oliveira | Psicóloga Clínica</strong>
         <span>CRP/SP 06/228063</span>
         <span>Atendimento presencial e online</span>
+        <span>Av. Salgado Filho, 252, Centro, Guarulhos-SP</span>
         <span>Particular com recibo para reembolso</span>
         <span>WhatsApp: (11) 94333-3199</span>
       </div>
