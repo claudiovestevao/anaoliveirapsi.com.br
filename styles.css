@@ -870,6 +870,101 @@ p {
   color: var(--ink);
 }
 
+.blog-hero {
+  width: min(100%, var(--max));
+  margin: 0 auto;
+  padding: 132px clamp(18px, 5vw, 34px) 66px;
+}
+
+.blog-hero > div {
+  max-width: 860px;
+}
+
+.blog-hero p:not(.eyebrow) {
+  max-width: 720px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.45vw, 1.16rem);
+}
+
+.blog-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  width: min(100%, var(--max));
+  margin: 0 auto;
+  padding: 0 clamp(18px, 5vw, 72px) clamp(76px, 9vw, 110px);
+}
+
+.blog-post,
+.blog-cta > div {
+  border: 1px solid rgba(79, 89, 70, 0.12);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: var(--soft-shadow);
+}
+
+.blog-post {
+  display: grid;
+  align-content: start;
+  padding: clamp(20px, 2.5vw, 28px);
+}
+
+.blog-post span {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: var(--terracotta);
+  background: var(--cream);
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.blog-post h2 {
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+}
+
+.blog-post p {
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+.blog-post details {
+  margin-top: 18px;
+  color: var(--muted);
+}
+
+.blog-post summary {
+  color: var(--sage-deep);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.blog-cta {
+  padding: 0 clamp(18px, 5vw, 72px) clamp(76px, 9vw, 110px);
+  background: linear-gradient(180deg, var(--cream), var(--green-pale));
+}
+
+.blog-cta > div {
+  width: min(100%, 900px);
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 54px);
+  text-align: center;
+}
+
+.blog-cta p:not(.eyebrow) {
+  max-width: 640px;
+  margin: 16px auto 0;
+  color: var(--muted);
+}
+
+.blog-cta .button {
+  margin-top: 26px;
+}
+
 .admin-page {
   background: linear-gradient(180deg, var(--green-pale), var(--cream));
 }
@@ -1162,6 +1257,7 @@ p {
   .timeline,
   .content-grid,
   .neuro-grid,
+  .blog-list,
   .schedule-grid,
   .admin-grid {
     grid-template-columns: 1fr;
@@ -1232,6 +1328,20 @@ p {
   .footer {
     gap: 18px;
     font-size: 0.88rem;
+  }
+
+  .blog-hero {
+    padding: 108px 16px 52px;
+  }
+
+  .blog-list,
+  .blog-cta {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .blog-cta > div {
+    text-align: left;
   }
 }
 
