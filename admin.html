@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Admin | Agenda Ana Carolina Oliveira</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="admin-page">
+    <main class="admin-screen">
+      <section class="admin-panel">
+        <img src="assets/logo-oficial-transparente.png" alt="Logo Ana Carolina Oliveira Psicóloga" />
+        <div data-admin-login>
+          <p class="eyebrow">Admin</p>
+          <h1>Editar horários</h1>
+          <p>Digite a senha para ajustar os horários exibidos no site.</p>
+          <label>
+            Senha
+            <input type="password" data-admin-password autocomplete="current-password" />
+          </label>
+          <button class="button primary" type="button" data-admin-enter>Entrar</button>
+          <p class="admin-error" data-admin-error hidden>Senha incorreta.</p>
+        </div>
+        <div data-admin-editor hidden>
+          <p class="eyebrow">Agenda</p>
+          <h1>Disponibilidade semanal</h1>
+          <p>Horários em Brasília. O padrão é segunda a quarta das 16h às 21h e quinta/sexta das 8h às 11h.</p>
+          <div class="admin-grid" data-admin-grid></div>
+          <div class="admin-actions">
+            <button class="button ghost" type="button" data-admin-default>Restaurar padrão</button>
+            <button class="button ghost" type="button" data-admin-clear>Limpar tudo</button>
+            <button class="button primary" type="button" data-admin-save>Salvar horários</button>
+          </div>
+          <p class="admin-saved" data-admin-saved hidden>Horários atualizados neste navegador.</p>
+          <a class="admin-back" href="./">Voltar ao site</a>
+        </div>
+      </section>
+    </main>
+    <script src="admin.js"></script>
+  </body>
+</html>

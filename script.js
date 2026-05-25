@@ -3,32 +3,15 @@ const nav = document.querySelector("[data-nav]");
 const menuToggle = document.querySelector("[data-menu-toggle]");
 const faqItems = document.querySelectorAll(".faq-item");
 const scheduleGrid = document.querySelector("[data-schedule-grid]");
-const scheduleEmpty = document.querySelector("[data-schedule-empty]");
-const adminModal = document.querySelector("[data-admin-modal]");
-const adminOpen = document.querySelector("[data-admin-open]");
-const adminClose = document.querySelector("[data-admin-close]");
-const adminLogin = document.querySelector("[data-admin-login]");
-const adminEditor = document.querySelector("[data-admin-editor]");
-const adminPassword = document.querySelector("[data-admin-password]");
-const adminEnter = document.querySelector("[data-admin-enter]");
-const adminError = document.querySelector("[data-admin-error]");
-const adminGrid = document.querySelector("[data-admin-grid]");
-const adminSave = document.querySelector("[data-admin-save]");
-const adminClear = document.querySelector("[data-admin-clear]");
-const adminWeekdays = document.querySelector("[data-admin-weekdays]");
-const adminSaved = document.querySelector("[data-admin-saved]");
 
 const whatsappNumber = "5511943333199";
 const scheduleKey = "anaCarolinaWeeklyAvailability_v2";
-const adminPasswordValue = "guarulhos";
 const days = [
   { id: "seg", label: "Segunda" },
   { id: "ter", label: "Terça" },
   { id: "qua", label: "Quarta" },
   { id: "qui", label: "Quinta" },
   { id: "sex", label: "Sexta" },
-  { id: "sab", label: "Sábado" },
-  { id: "dom", label: "Domingo" },
 ];
 const hours = Array.from({ length: 14 }, (_, index) => `${String(index + 8).padStart(2, "0")}:00`);
 const defaultSlots = {
@@ -37,8 +20,6 @@ const defaultSlots = {
   qua: ["16:00", "17:00", "18:00", "19:00", "20:00", "21:00"],
   qui: ["08:00", "09:00", "10:00", "11:00"],
   sex: ["08:00", "09:00", "10:00", "11:00"],
-  sab: [],
-  dom: [],
 };
 
 const createDefaultAvailability = () =>
@@ -65,10 +46,6 @@ const getAvailability = () => {
   }
 };
 
-const saveAvailability = (availability) => {
-  localStorage.setItem(scheduleKey, JSON.stringify(availability));
-};
-
 const createWhatsAppLink = (dayLabel, hour) => {
   const text = `Olá, Dra. Ana Carolina. Gostaria de solicitar um agendamento para ${dayLabel}, às ${hour} (horário de Brasília).`;
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
@@ -78,12 +55,10 @@ const renderSchedule = () => {
   if (!scheduleGrid) return;
 
   const availability = getAvailability();
-  let hasSlots = false;
 
   scheduleGrid.innerHTML = days
     .map((day) => {
       const slots = availability[day.id] || [];
-      if (slots.length > 0) hasSlots = true;
       const selectId = `schedule-${day.id}`;
 
       return `
@@ -105,8 +80,6 @@ const renderSchedule = () => {
     })
     .join("");
 
-  scheduleEmpty.hidden = hasSlots;
-
   scheduleGrid.querySelectorAll("[data-schedule-select]").forEach((select) => {
     select.addEventListener("change", () => {
       const dayLabel = select.dataset.dayLabel;
@@ -115,68 +88,6 @@ const renderSchedule = () => {
       link.setAttribute("aria-label", `Solicitar agendamento para ${dayLabel}, às ${select.value}, pelo WhatsApp`);
     });
   });
-};
-
-const renderAdminGrid = () => {
-  if (!adminGrid) return;
-
-  const availability = getAvailability();
-  adminGrid.innerHTML = days
-    .map(
-      (day) => `
-        <div class="admin-day">
-          <strong>${day.label}</strong>
-          ${hours
-            .map((hour) => {
-              const checked = availability[day.id]?.includes(hour) ? "checked" : "";
-              return `
-                <label class="admin-slot">
-                  <input type="checkbox" data-day="${day.id}" value="${hour}" ${checked} />
-                  ${hour}
-                </label>
-              `;
-            })
-            .join("")}
-        </div>
-      `,
-    )
-    .join("");
-};
-
-const collectAdminAvailability = () =>
-  days.reduce((availability, day) => {
-    availability[day.id] = Array.from(adminGrid.querySelectorAll(`input[data-day="${day.id}"]:checked`)).map(
-      (input) => input.value,
-    );
-    return availability;
-  }, {});
-
-const openAdmin = () => {
-  adminModal.hidden = false;
-  document.body.classList.add("menu-open");
-  adminLogin.hidden = false;
-  adminEditor.hidden = true;
-  adminError.hidden = true;
-  adminSaved.hidden = true;
-  adminPassword.value = "";
-  window.setTimeout(() => adminPassword.focus(), 50);
-};
-
-const closeAdmin = () => {
-  adminModal.hidden = true;
-  document.body.classList.remove("menu-open");
-};
-
-const enterAdmin = () => {
-  if (adminPassword.value !== adminPasswordValue) {
-    adminError.hidden = false;
-    return;
-  }
-
-  adminLogin.hidden = true;
-  adminEditor.hidden = false;
-  adminError.hidden = true;
-  renderAdminGrid();
 };
 
 const setHeaderState = () => {
@@ -223,34 +134,5 @@ faqItems.forEach((item, index) => {
       question.setAttribute("aria-expanded", "true");
       answer.hidden = false;
     }
-  });
-});
-
-adminOpen.addEventListener("click", openAdmin);
-adminClose.addEventListener("click", closeAdmin);
-adminEnter.addEventListener("click", enterAdmin);
-adminPassword.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") enterAdmin();
-});
-
-adminModal.addEventListener("click", (event) => {
-  if (event.target === adminModal) closeAdmin();
-});
-
-adminSave.addEventListener("click", () => {
-  saveAvailability(collectAdminAvailability());
-  renderSchedule();
-  adminSaved.hidden = false;
-});
-
-adminClear.addEventListener("click", () => {
-  adminGrid.querySelectorAll("input").forEach((input) => {
-    input.checked = false;
-  });
-});
-
-adminWeekdays.addEventListener("click", () => {
-  adminGrid.querySelectorAll("input").forEach((input) => {
-    input.checked = defaultSlots[input.dataset.day]?.includes(input.value);
   });
 });
