@@ -372,6 +372,7 @@ p {
 }
 
 .support,
+.signs,
 .emotional-safety,
 .process,
 .faq {
@@ -380,7 +381,8 @@ p {
 
 .audience-grid,
 .service-grid,
-.safety-grid {
+.safety-grid,
+.demands-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
@@ -392,6 +394,7 @@ p {
 .neuro-grid article,
 .mini-grid article,
 .safety-grid article,
+.demands-grid article,
 .timeline article {
   border: 1px solid rgba(79, 89, 70, 0.12);
   border-radius: var(--radius);
@@ -401,13 +404,28 @@ p {
 
 .audience-card,
 .service-card,
-.safety-grid article {
+.safety-grid article,
+.demands-grid article {
   padding: clamp(20px, 2.4vw, 26px);
 }
 
 .audience-card.featured,
 .service-card.featured {
   background: var(--green-pale);
+}
+
+.demands {
+  background: var(--cream);
+}
+
+.demands-grid article {
+  display: flex;
+  align-items: center;
+  min-height: 112px;
+}
+
+.demands-grid h3 {
+  color: var(--sage-deep);
 }
 
 .soft-icon {
@@ -1023,7 +1041,8 @@ p {
   .audience-grid,
   .service-grid,
   .mini-grid,
-  .safety-grid {
+  .safety-grid,
+  .demands-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1131,6 +1150,7 @@ p {
   .audience-card,
   .service-card,
   .safety-grid article,
+  .demands-grid article,
   .timeline article,
   .mini-grid article,
   .neuro-grid article,
