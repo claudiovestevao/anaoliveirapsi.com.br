@@ -372,13 +372,15 @@ p {
 }
 
 .support,
+.emotional-safety,
 .process,
 .faq {
   background: var(--paper);
 }
 
 .audience-grid,
-.service-grid {
+.service-grid,
+.safety-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
@@ -389,6 +391,7 @@ p {
 .content-grid article,
 .neuro-grid article,
 .mini-grid article,
+.safety-grid article,
 .timeline article {
   border: 1px solid rgba(79, 89, 70, 0.12);
   border-radius: var(--radius);
@@ -397,7 +400,8 @@ p {
 }
 
 .audience-card,
-.service-card {
+.service-card,
+.safety-grid article {
   padding: clamp(20px, 2.4vw, 26px);
 }
 
@@ -477,6 +481,7 @@ p {
 .service-card p,
 .mini-grid p,
 .neuro-grid p,
+.safety-grid p,
 .content-grid p,
 .about-copy p {
   margin-top: 10px;
@@ -486,9 +491,28 @@ p {
 .service-card a,
 .content-grid a {
   display: inline-flex;
-  margin-top: 18px;
   color: var(--sage-deep);
   font-weight: 800;
+}
+
+.service-card > a,
+.content-grid a {
+  margin-top: 18px;
+}
+
+.card-actions {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.card-actions a {
+  margin-top: 0;
+}
+
+.card-actions a + a {
+  color: var(--terracotta);
+  font-size: 0.94rem;
 }
 
 .play-care,
@@ -763,6 +787,10 @@ p {
   margin-top: 28px;
 }
 
+.final-cta-inner .button + .button {
+  margin-left: 10px;
+}
+
 .floating-whatsapp {
   position: fixed;
   z-index: 50;
@@ -994,7 +1022,8 @@ p {
 
   .audience-grid,
   .service-grid,
-  .mini-grid {
+  .mini-grid,
+  .safety-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1101,6 +1130,7 @@ p {
 
   .audience-card,
   .service-card,
+  .safety-grid article,
   .timeline article,
   .mini-grid article,
   .neuro-grid article,
@@ -1112,6 +1142,10 @@ p {
   .final-cta-inner {
     padding: 26px 20px;
     text-align: left;
+  }
+
+  .final-cta-inner .button + .button {
+    margin-left: 0;
   }
 
   .hero-info {
