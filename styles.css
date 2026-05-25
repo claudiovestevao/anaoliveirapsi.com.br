@@ -738,6 +738,31 @@ p {
   display: none;
 }
 
+.final-cta {
+  background: linear-gradient(180deg, var(--paper), var(--green-pale));
+}
+
+.final-cta-inner {
+  max-width: 880px;
+  padding: clamp(28px, 5vw, 54px);
+  border: 1px solid rgba(79, 89, 70, 0.14);
+  border-radius: calc(var(--radius) + 10px);
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.final-cta-inner p:not(.eyebrow) {
+  max-width: 660px;
+  margin: 16px auto 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.3vw, 1.08rem);
+}
+
+.final-cta-inner .button {
+  margin-top: 28px;
+}
+
 .floating-whatsapp {
   position: fixed;
   z-index: 50;
@@ -1082,6 +1107,11 @@ p {
   .content-grid article,
   .schedule-board {
     padding: 20px;
+  }
+
+  .final-cta-inner {
+    padding: 26px 20px;
+    text-align: left;
   }
 
   .hero-info {

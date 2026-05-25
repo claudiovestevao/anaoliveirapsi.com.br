@@ -55,6 +55,13 @@ const renderSchedule = () => {
   if (!scheduleGrid) return;
 
   const availability = getAvailability();
+  const hasAnySlot = days.some((day) => (availability[day.id] || []).length > 0);
+
+  if (!hasAnySlot) {
+    scheduleGrid.innerHTML =
+      '<p class="schedule-empty">Nenhum horário disponível nesta semana. Fale pelo WhatsApp para consultar encaixes.</p>';
+    return;
+  }
 
   scheduleGrid.innerHTML = days
     .map((day) => {
