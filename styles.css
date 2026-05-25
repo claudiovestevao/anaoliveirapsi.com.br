@@ -123,8 +123,8 @@ p {
   padding: 12px 14px 12px 18px;
   border: 1px solid rgba(222, 214, 202, 0.82);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.86);
-  box-shadow: 0 16px 36px rgba(72, 100, 79, 0.12);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 30px rgba(72, 100, 79, 0.1);
   backdrop-filter: blur(18px);
   transform: translateX(-50%);
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
@@ -216,30 +216,11 @@ p {
 
 .hero {
   position: relative;
-  padding: 132px clamp(18px, 5vw, 72px) 72px;
+  padding: 132px clamp(18px, 5vw, 72px) 86px;
   background:
     radial-gradient(circle at top right, rgba(200, 221, 192, 0.75), transparent 38%),
     linear-gradient(135deg, var(--cream) 0%, var(--white) 52%, var(--green-pale) 100%);
   overflow: hidden;
-}
-
-.hero-logo {
-  width: min(360px, 82vw);
-  height: auto;
-  margin: 0 0 26px;
-  mix-blend-mode: multiply;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  right: -12vw;
-  bottom: -18vw;
-  width: 48vw;
-  height: 48vw;
-  border-radius: 50%;
-  background: rgba(239, 229, 214, 0.75);
-  filter: blur(6px);
 }
 
 .hero-inner {
@@ -247,7 +228,7 @@ p {
   z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.72fr);
-  gap: clamp(32px, 6vw, 88px);
+  gap: clamp(34px, 7vw, 96px);
   align-items: center;
   width: min(100%, var(--max));
   min-height: calc(100vh - 190px);
@@ -385,13 +366,6 @@ p {
   color: var(--muted);
 }
 
-.hero-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.hero-tags span,
 .pill-grid span {
   display: inline-flex;
   align-items: center;
@@ -402,6 +376,23 @@ p {
   color: var(--sage-deep);
   background: rgba(255, 255, 255, 0.72);
   font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.signal-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.signal-list li {
+  padding: 16px 18px;
+  border: 1px solid rgba(15, 63, 40, 0.12);
+  border-radius: 18px;
+  color: var(--ink);
+  background: var(--beige-soft);
   font-weight: 700;
 }
 
@@ -506,16 +497,13 @@ p {
 
 .comfort-list {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   margin-top: 28px;
 }
 
 .comfort-list article {
-  padding: 20px;
-  border: 1px solid rgba(15, 63, 40, 0.12);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.76);
-  box-shadow: 0 12px 28px rgba(55, 71, 56, 0.07);
+  padding: 0 0 0 18px;
+  border-left: 3px solid var(--green-light);
 }
 
 .comfort-list p {
@@ -525,12 +513,12 @@ p {
 
 .benefit-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 
 .benefit-card {
-  min-height: 310px;
+  min-height: 260px;
   padding: 28px;
 }
 
@@ -703,26 +691,32 @@ p {
 
 .schedule-grid {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
 }
 
 .schedule-day {
   display: grid;
-  gap: 8px;
+  grid-template-columns: 1fr auto;
+  gap: 8px 10px;
   align-content: start;
+  align-items: end;
   min-width: 0;
+  padding: 14px;
+  border: 1px solid rgba(15, 63, 40, 0.12);
+  border-radius: 18px;
+  background: var(--cream);
 }
 
 .schedule-day-title {
-  padding: 10px 8px;
-  border-radius: 14px;
-  color: var(--white);
-  background: var(--sage-deep);
-  font-size: 0.82rem;
+  grid-column: 1 / -1;
+  padding: 0;
+  color: var(--sage-deep);
+  background: transparent;
+  font-size: 0.95rem;
   font-weight: 800;
-  text-align: center;
+  text-align: left;
 }
 
 .slot-button,
@@ -738,10 +732,30 @@ p {
 }
 
 .slot-button {
+  min-width: 92px;
   color: var(--sage-deep);
-  background: var(--beige-soft);
+  background: var(--green-pale);
   cursor: pointer;
   transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.schedule-select-label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.schedule-select {
+  width: 100%;
+  min-height: 42px;
+  margin-top: 4px;
+  padding: 8px 10px;
+  border: 1px solid rgba(15, 63, 40, 0.14);
+  border-radius: 13px;
+  color: var(--ink);
+  background: var(--white);
+  font-weight: 800;
 }
 
 .slot-unavailable {
@@ -1084,7 +1098,7 @@ p {
   }
 
   .schedule-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .attendance-grid {

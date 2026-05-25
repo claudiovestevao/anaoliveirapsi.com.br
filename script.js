@@ -75,18 +75,20 @@ const renderSchedule = () => {
     .map((day) => {
       const slots = availability[day.id] || [];
       if (slots.length > 0) hasSlots = true;
+      const selectId = `schedule-${day.id}`;
 
       return `
         <div class="schedule-day">
           <div class="schedule-day-title">${day.label}</div>
           ${
             slots.length
-              ? slots
-                  .map(
-                    (hour) =>
-                      `<a class="slot-button" href="${createWhatsAppLink(day.label, hour)}" target="_blank" rel="noreferrer" aria-label="Solicitar agendamento para ${day.label}, às ${hour}, pelo WhatsApp">${hour}</a>`,
-                  )
-                  .join("")
+              ? `
+                <label class="schedule-select-label" for="${selectId}">Horário</label>
+                <select class="schedule-select" id="${selectId}" data-schedule-select data-day-label="${day.label}">
+                  ${slots.map((hour) => `<option value="${hour}">${hour}</option>`).join("")}
+                </select>
+                <a class="slot-button" href="${createWhatsAppLink(day.label, slots[0])}" target="_blank" rel="noreferrer" data-schedule-link aria-label="Solicitar agendamento para ${day.label}, às ${slots[0]}, pelo WhatsApp">Solicitar</a>
+              `
               : '<span class="slot-unavailable">Sem horários</span>'
           }
         </div>
@@ -95,6 +97,15 @@ const renderSchedule = () => {
     .join("");
 
   scheduleEmpty.hidden = hasSlots;
+
+  scheduleGrid.querySelectorAll("[data-schedule-select]").forEach((select) => {
+    select.addEventListener("change", () => {
+      const dayLabel = select.dataset.dayLabel;
+      const link = select.closest(".schedule-day").querySelector("[data-schedule-link]");
+      link.href = createWhatsAppLink(dayLabel, select.value);
+      link.setAttribute("aria-label", `Solicitar agendamento para ${dayLabel}, às ${select.value}, pelo WhatsApp`);
+    });
+  });
 };
 
 const renderAdminGrid = () => {
