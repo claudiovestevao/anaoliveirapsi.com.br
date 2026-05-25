@@ -1,39 +1,61 @@
-# DNS para publicar anaoliveirapsi.com.br
+# Publicar anaoliveirapsi.com.br na GoDaddy
 
-O site já está publicado no GitHub Pages. Para usar o domínio `anaoliveirapsi.com.br`, configure estes registros no DNS da GoDaddy:
+O site ja esta publicado no GitHub Pages. Para o dominio `anaoliveirapsi.com.br` abrir este site, configure o DNS na GoDaddy assim:
 
-## Domínio raiz
+## 1. Dominio raiz
 
-Tipo: `A`
-
-Nome: `@`
-
-Valores:
-
-```text
-185.199.108.153
-185.199.109.153
-185.199.110.153
-185.199.111.153
-```
-
-Remova os registros `A` atuais que apontam para:
+Remova os registros `A` atuais do tipo "Parked" ou que apontem para:
 
 ```text
 13.248.243.5
 76.223.105.230
 ```
 
-## WWW
+Crie estes 4 registros:
 
-Tipo: `CNAME`
+| Tipo | Nome | Valor |
+| --- | --- | --- |
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
 
-Nome: `www`
+Use TTL padrao, como 1 hora.
 
-Valor:
+## 2. WWW
+
+Remova qualquer registro `www` atual que aponte para `@` ou `anaoliveirapsi.com.br`.
+
+Crie este registro:
+
+| Tipo | Nome | Valor |
+| --- | --- | --- |
+| CNAME | www | claudiovestevao.github.io |
+
+Use TTL padrao, como 1 hora.
+
+## 3. GitHub Pages
+
+O repositorio ja contem o arquivo `CNAME` com:
 
 ```text
-claudiocode.dev
+anaoliveirapsi.com.br
 ```
 
-Depois que esses DNS propagarem, o GitHub Pages pode ser configurado novamente com o domínio customizado `anaoliveirapsi.com.br` e HTTPS obrigatório.
+Depois que o DNS propagar, abra:
+
+`https://github.com/claudiovestevao/anaoliveirapsi.com.br/settings/pages`
+
+Confira se o campo "Custom domain" esta como:
+
+```text
+anaoliveirapsi.com.br
+```
+
+Quando o certificado ficar disponivel, marque "Enforce HTTPS".
+
+## 4. Propagacao
+
+Normalmente leva alguns minutos, mas pode levar ate 24 horas. Enquanto propaga, o site continua disponivel em:
+
+`https://claudiocode.dev/anaoliveirapsi.com.br/`
