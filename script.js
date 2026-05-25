@@ -19,7 +19,7 @@ const adminWeekdays = document.querySelector("[data-admin-weekdays]");
 const adminSaved = document.querySelector("[data-admin-saved]");
 
 const whatsappNumber = "5511943333199";
-const scheduleKey = "anaCarolinaWeeklyAvailability";
+const scheduleKey = "anaCarolinaWeeklyAvailability_v2";
 const adminPasswordValue = "guarulhos";
 const days = [
   { id: "seg", label: "Segunda" },
@@ -30,11 +30,20 @@ const days = [
   { id: "sab", label: "Sábado" },
   { id: "dom", label: "Domingo" },
 ];
-const hours = Array.from({ length: 13 }, (_, index) => `${String(index + 8).padStart(2, "0")}:00`);
+const hours = Array.from({ length: 14 }, (_, index) => `${String(index + 8).padStart(2, "0")}:00`);
+const defaultSlots = {
+  seg: ["16:00", "17:00", "18:00", "19:00", "20:00", "21:00"],
+  ter: ["16:00", "17:00", "18:00", "19:00", "20:00", "21:00"],
+  qua: ["16:00", "17:00", "18:00", "19:00", "20:00", "21:00"],
+  qui: ["08:00", "09:00", "10:00", "11:00"],
+  sex: ["08:00", "09:00", "10:00", "11:00"],
+  sab: [],
+  dom: [],
+};
 
 const createDefaultAvailability = () =>
   days.reduce((availability, day) => {
-    availability[day.id] = ["seg", "ter", "qua", "qui", "sex"].includes(day.id) ? [...hours] : [];
+    availability[day.id] = [...defaultSlots[day.id]];
     return availability;
   }, {});
 
@@ -61,7 +70,7 @@ const saveAvailability = (availability) => {
 };
 
 const createWhatsAppLink = (dayLabel, hour) => {
-  const text = `Olá, Dra. Ana Carolina. Gostaria de solicitar um agendamento para ${dayLabel}, às ${hour}.`;
+  const text = `Olá, Dra. Ana Carolina. Gostaria de solicitar um agendamento para ${dayLabel}, às ${hour} (horário de Brasília).`;
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
 };
 
@@ -242,6 +251,6 @@ adminClear.addEventListener("click", () => {
 
 adminWeekdays.addEventListener("click", () => {
   adminGrid.querySelectorAll("input").forEach((input) => {
-    input.checked = ["seg", "ter", "qua", "qui", "sex"].includes(input.dataset.day);
+    input.checked = defaultSlots[input.dataset.day]?.includes(input.value);
   });
 });
