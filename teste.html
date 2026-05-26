@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Teste de layout | Dra Ana Carolina Oliveira</title>
+    <meta
+      name="description"
+      content="Página de teste para uma versão mais clara, humana e orientada à conversão do site da Dra Ana Carolina Oliveira."
+    />
+    <meta name="theme-color" content="#f8f3ec" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="teste.css" />
+  </head>
+  <body class="test-page">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+
+    <header class="test-header" data-header>
+      <a class="test-brand" href="#inicio" aria-label="Ir para o início">
+        <img src="assets/logo-oficial-transparente.png" alt="Logo Ana Carolina Oliveira Psicóloga" />
+        <span>
+          <strong>Dra Ana Carolina Oliveira</strong>
+          <small>Psicóloga Clínica | CRP/SP 06/228063</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" data-menu-toggle>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="test-nav" aria-label="Navegação da página de teste" data-nav>
+        <a href="#inicio">Início</a>
+        <a href="#demandas">Demandas</a>
+        <a href="#atendimentos">Atendimentos</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#sobre">Sobre</a>
+        <a class="test-nav-cta" href="#agendar">Agendar</a>
+      </nav>
+    </header>
+
+    <main id="conteudo">
+      <section class="test-hero" id="inicio" aria-labelledby="test-hero-title">
+        <div class="test-hero-copy">
+          <p class="test-eyebrow">Psicóloga clínica em Guarulhos</p>
+          <h1 id="test-hero-title">Psicoterapia para crianças, adolescentes e adultos.</h1>
+          <p>
+            Escuta clínica, cuidado ético e orientação para famílias em um processo acolhedor,
+            individualizado e claro desde a primeira conversa.
+          </p>
+          <div class="test-actions">
+            <a class="test-button primary" href="https://wa.me/5511943333199" target="_blank" rel="noreferrer">
+              <span class="wa-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32" focusable="false">
+                  <path d="M16 2.7A13.2 13.2 0 0 0 4.4 22.3L2.7 29.3l7.1-1.8A13.2 13.2 0 1 0 16 2.7Zm0 23.9c-1.9 0-3.7-.5-5.4-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.4A10.5 10.5 0 0 1 5.4 16 10.6 10.6 0 1 1 16 26.6Zm5.8-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.6-1.6-1-.8-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2.1-.4 0-.6-.1-.2-.7-1.7-1-2.4-.3-.6-.5-.5-.7-.6h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.1 3.1 1.3 3.3c.2.2 2.3 3.5 5.5 4.9.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4Z" />
+                </svg>
+              </span>
+              Falar no WhatsApp
+            </a>
+            <a class="test-button secondary" href="#horarios">Ver horários</a>
+          </div>
+          <div class="test-proof" aria-label="Informações principais">
+            <span>Presencial no Centro de Guarulhos</span>
+            <span>Online quando indicado</span>
+            <span>R$ 150,00 com recibo</span>
+          </div>
+        </div>
+
+        <div class="test-hero-visual">
+          <figure>
+            <img
+              src="assets/ana-carolina-atendimento-infantil.png"
+              alt="Dra Ana Carolina Oliveira em atendimento infantil com atividade de desenho"
+            />
+          </figure>
+          <aside aria-label="Resumo profissional">
+            <strong>Dra Ana Carolina Oliveira</strong>
+            <span>CRP/SP 06/228063</span>
+            <p>Atuação em TCC, pós-graduanda em Neuropsicologia, com atenção especial à infância, famílias e neurodiversidade.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="test-section test-intro" id="demandas" aria-labelledby="intro-title">
+        <div>
+          <p class="test-eyebrow">Para quem chega com dúvidas</p>
+          <h2 id="intro-title">Talvez você só precise começar por uma conversa.</h2>
+        </div>
+        <p>
+          É comum não saber se é uma fase, se a preocupação faz sentido ou por onde começar.
+          A primeira conversa ajuda a organizar a demanda sem julgamento, culpa ou rótulos.
+        </p>
+      </section>
+
+      <section class="test-section test-cards" aria-label="Demandas acolhidas">
+        <article class="featured">
+          <span>Crianças e famílias</span>
+          <h3>Emoções, comportamento, escola e desenvolvimento</h3>
+          <p>Apoio para ansiedade, irritabilidade, socialização, dificuldades escolares, suspeitas de autismo, TDAH, TOD e orientação aos responsáveis.</p>
+        </article>
+        <article>
+          <span>Adolescentes e jovens</span>
+          <h3>Ansiedade, autoestima e relações</h3>
+          <p>Um espaço seguro para falar sobre conflitos, inseguranças, escola, faculdade, família, escolhas e mudanças dessa fase.</p>
+        </article>
+        <article>
+          <span>Adultos</span>
+          <h3>Sobrecarga, vínculos e autoconhecimento</h3>
+          <p>Escuta e acompanhamento para ansiedade, estresse, tomada de decisão, relações, mudanças e cuidado emocional.</p>
+        </article>
+      </section>
+
+      <section class="test-section test-split" id="atendimentos" aria-labelledby="play-test-title">
+        <figure>
+          <img
+            src="assets/recursos-ludicos-terapia.png"
+            alt="Recursos lúdicos usados em psicoterapia infantil"
+          />
+        </figure>
+        <div>
+          <p class="test-eyebrow">Atendimento infantil</p>
+          <h2 id="play-test-title">O brincar entra como recurso clínico, não como distração.</h2>
+          <p>
+            Jogos, desenhos, cartas e histórias ajudam a criança a expressar sentimentos, construir vínculo,
+            lidar com regras e desenvolver recursos emocionais no seu próprio ritmo.
+          </p>
+          <ul class="test-checklist">
+            <li>Expressão emocional por meio de recursos adequados à idade</li>
+            <li>Orientação aos pais ou responsáveis ao longo do processo</li>
+            <li>Acolhimento de demandas ligadas a neurodiversidade e desenvolvimento</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="test-section test-flow" id="como-funciona" aria-labelledby="flow-title">
+        <div class="test-section-heading">
+          <p class="test-eyebrow">Como funciona</p>
+          <h2 id="flow-title">Um caminho simples para iniciar.</h2>
+        </div>
+        <div class="test-steps">
+          <article>
+            <span>1</span>
+            <h3>Escolha o contato</h3>
+            <p>Você pode falar pelo WhatsApp ou selecionar um horário pelo site.</p>
+          </article>
+          <article>
+            <span>2</span>
+            <h3>Conte a demanda</h3>
+            <p>A primeira conversa organiza dúvidas, contexto e próximos passos.</p>
+          </article>
+          <article>
+            <span>3</span>
+            <h3>Inicie o acompanhamento</h3>
+            <p>O processo respeita idade, sigilo, história e necessidades de cada pessoa.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="test-section test-schedule" id="agendar" aria-labelledby="test-schedule-title">
+        <div>
+          <p class="test-eyebrow">Agendamento</p>
+          <h2 id="test-schedule-title">Escolha o jeito mais confortável de agendar.</h2>
+          <p>
+            Use a ferramenta de horários ou envie uma mensagem pelo WhatsApp. A confirmação acontece
+            após retorno da profissional.
+          </p>
+          <div class="test-actions">
+            <a class="test-button primary" href="https://wa.me/5511943333199" target="_blank" rel="noreferrer">
+              <span class="wa-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32" focusable="false">
+                  <path d="M16 2.7A13.2 13.2 0 0 0 4.4 22.3L2.7 29.3l7.1-1.8A13.2 13.2 0 1 0 16 2.7Zm0 23.9c-1.9 0-3.7-.5-5.4-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.4A10.5 10.5 0 0 1 5.4 16 10.6 10.6 0 1 1 16 26.6Zm5.8-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.6-1.6-1-.8-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2.1-.4 0-.6-.1-.2-.7-1.7-1-2.4-.3-.6-.5-.5-.7-.6h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.1 3.1 1.3 3.3c.2.2 2.3 3.5 5.5 4.9.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4Z" />
+                </svg>
+              </span>
+              WhatsApp
+            </a>
+          </div>
+          <ul class="test-checklist compact">
+            <li>Av. Salgado Filho, 252, Centro, Guarulhos-SP</li>
+            <li>Particular com recibo para reembolso</li>
+            <li>Valor da sessão: R$ 150,00</li>
+          </ul>
+        </div>
+        <div class="test-schedule-card" id="horarios">
+          <span>Horário de Brasília</span>
+          <h3>Horários disponíveis</h3>
+          <p>Selecione um horário e envie a solicitação pronta pelo WhatsApp.</p>
+          <div class="schedule-grid" data-schedule-grid></div>
+        </div>
+      </section>
+
+      <section class="test-section test-about" id="sobre" aria-labelledby="test-about-title">
+        <figure>
+          <img
+            src="assets/ana-carolina-sofa-jaleco.png"
+            alt="Dra Ana Carolina Oliveira sentada em consultório usando jaleco"
+          />
+        </figure>
+        <div>
+          <p class="test-eyebrow">Sobre</p>
+          <h2 id="test-about-title">Conheça a Dra Ana Carolina Oliveira</h2>
+          <p>
+            Psicóloga clínica formada pela Universidade Guarulhos, pós-graduanda em Neuropsicologia
+            pela USCS e com atuação em Terapia Cognitivo-Comportamental.
+          </p>
+          <p>
+            Sua prática une escuta acolhedora, fundamentação técnica e cuidado individualizado para
+            crianças, adolescentes, jovens, adultos e famílias.
+          </p>
+        </div>
+      </section>
+
+      <section class="test-final" aria-labelledby="test-final-title">
+        <p class="test-eyebrow">Próximo passo</p>
+        <h2 id="test-final-title">Vamos conversar sobre o que você ou sua família estão vivendo?</h2>
+        <p>O primeiro contato pode ser simples, cuidadoso e sem compromisso com respostas prontas.</p>
+        <a class="test-button primary" href="https://wa.me/5511943333199" target="_blank" rel="noreferrer">
+          <span class="wa-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" focusable="false">
+              <path d="M16 2.7A13.2 13.2 0 0 0 4.4 22.3L2.7 29.3l7.1-1.8A13.2 13.2 0 1 0 16 2.7Zm0 23.9c-1.9 0-3.7-.5-5.4-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.4A10.5 10.5 0 0 1 5.4 16 10.6 10.6 0 1 1 16 26.6Zm5.8-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.6-1.6-1-.8-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2.1-.4 0-.6-.1-.2-.7-1.7-1-2.4-.3-.6-.5-.5-.7-.6h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.1 3.1 1.3 3.3c.2.2 2.3 3.5 5.5 4.9.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4Z" />
+            </svg>
+          </span>
+          Falar com a Dra Ana
+        </a>
+      </section>
+    </main>
+
+    <a
+      class="floating-whatsapp"
+      href="https://wa.me/5511943333199"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Agendar pelo WhatsApp"
+    >
+      <span class="wa-icon" aria-hidden="true">
+        <svg viewBox="0 0 32 32" focusable="false">
+          <path d="M16 2.7A13.2 13.2 0 0 0 4.4 22.3L2.7 29.3l7.1-1.8A13.2 13.2 0 1 0 16 2.7Zm0 23.9c-1.9 0-3.7-.5-5.4-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.4A10.5 10.5 0 0 1 5.4 16 10.6 10.6 0 1 1 16 26.6Zm5.8-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.6-1.6-1-.8-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2.1-.4 0-.6-.1-.2-.7-1.7-1-2.4-.3-.6-.5-.5-.7-.6h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.1 3.1 1.3 3.3c.2.2 2.3 3.5 5.5 4.9.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4Z" />
+        </svg>
+      </span>
+      WhatsApp
+    </a>
+
+    <footer class="test-footer">
+      <div>
+        <strong>Dra Ana Carolina Oliveira | Psicóloga Clínica</strong>
+        <span>CRP/SP 06/228063</span>
+        <span>Av. Salgado Filho, 252, Centro, Guarulhos-SP</span>
+      </div>
+      <p>
+        Página de teste visual. O atendimento psicológico é individual e não promete resultados específicos.
+        <a href="index.html">Voltar para a página atual</a>
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
