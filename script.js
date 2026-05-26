@@ -51,6 +51,11 @@ const createWhatsAppLink = (dayLabel, hour) => {
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
 };
 
+const trackEvent = (eventName, parameters = {}) => {
+  if (typeof window.gtag !== "function") return;
+  window.gtag("event", eventName, parameters);
+};
+
 const renderSchedule = () => {
   if (!scheduleGrid) return;
 
@@ -93,6 +98,17 @@ const renderSchedule = () => {
       const link = select.closest(".schedule-day").querySelector("[data-schedule-link]");
       link.href = createWhatsAppLink(dayLabel, select.value);
       link.setAttribute("aria-label", `Solicitar agendamento para ${dayLabel}, às ${select.value}, pelo WhatsApp`);
+    });
+  });
+
+  scheduleGrid.querySelectorAll("[data-schedule-link]").forEach((link) => {
+    link.addEventListener("click", () => {
+      const day = link.closest(".schedule-day")?.querySelector(".schedule-day-title")?.textContent?.trim();
+      const hour = link.closest(".schedule-day")?.querySelector("[data-schedule-select]")?.value;
+      trackEvent("schedule_request_click", {
+        event_category: "engagement",
+        event_label: [day, hour].filter(Boolean).join(" "),
+      });
     });
   });
 };
@@ -141,5 +157,14 @@ faqItems.forEach((item, index) => {
       question.setAttribute("aria-expanded", "true");
       answer.hidden = false;
     }
+  });
+});
+
+document.querySelectorAll('a[href^="https://wa.me/"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    trackEvent("whatsapp_click", {
+      event_category: "contact",
+      event_label: link.textContent.trim().replace(/\s+/g, " "),
+    });
   });
 });
